@@ -66,15 +66,15 @@ export function getStrategy(ns, node) {
 	var seq = []; // action sequence
 	var allocation = []; // recommended allocation
 	if (ns.getServerSecurityLevel(node) > secThresh) {
-		type = 'flog';
+		type = 'weaken';
 		seq = ['g', 'w'];
 		allocation = [0.3, 0.7];
 	} else if (ns.getServerMoneyAvailable(node) < moneyThresh) {
-		type = 'nourish';
+		type = 'grow';
 		seq = ['g', 'w'];
 		allocation = [0.6, 0.4];
 	} else {
-		type = 'plunder';
+		type = 'hack';
 		seq = ['h', 'w', 'g', 'w'];
 		allocation = [0.25, 0.25, 0.25, 0.25];
 	}
